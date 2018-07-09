@@ -176,7 +176,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="147"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="large" translatesAutoresizingMaskIntoConstraints="NO" id="u9A-OI-1KM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="147"/>
+                                        <rect key="frame" x="-50" y="-50" width="475" height="247"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audience" translatesAutoresizingMaskIntoConstraints="NO" id="X5s-pQ-pNz">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="147"/>
@@ -187,23 +187,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="147"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
-                                        <blurEffect style="dark"/>
+                                        <blurEffect style="light"/>
                                     </visualEffectView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.45882352939999999" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="u9A-OI-1KM" secondAttribute="bottom" id="2ue-94-oyO"/>
+                                    <constraint firstAttribute="bottom" secondItem="u9A-OI-1KM" secondAttribute="bottom" constant="-50" id="2ue-94-oyO"/>
                                     <constraint firstAttribute="bottom" secondItem="4Kw-Zd-dEx" secondAttribute="bottom" id="68d-1K-aiV"/>
                                     <constraint firstAttribute="bottom" secondItem="X5s-pQ-pNz" secondAttribute="bottom" id="8Pl-CK-5cL"/>
-                                    <constraint firstItem="u9A-OI-1KM" firstAttribute="leading" secondItem="qdt-6t-qn1" secondAttribute="leading" id="DId-bv-12n"/>
+                                    <constraint firstItem="u9A-OI-1KM" firstAttribute="leading" secondItem="qdt-6t-qn1" secondAttribute="leading" constant="-50" id="DId-bv-12n"/>
                                     <constraint firstItem="X5s-pQ-pNz" firstAttribute="leading" secondItem="qdt-6t-qn1" secondAttribute="leading" id="FTA-MD-fWx"/>
                                     <constraint firstAttribute="trailing" secondItem="4Kw-Zd-dEx" secondAttribute="trailing" id="KZu-WA-1wq"/>
-                                    <constraint firstItem="u9A-OI-1KM" firstAttribute="top" secondItem="qdt-6t-qn1" secondAttribute="top" id="MiW-2v-Cim"/>
+                                    <constraint firstItem="u9A-OI-1KM" firstAttribute="top" secondItem="qdt-6t-qn1" secondAttribute="top" constant="-50" id="MiW-2v-Cim"/>
                                     <constraint firstAttribute="height" constant="147" id="TXC-Rp-WJy"/>
                                     <constraint firstItem="4Kw-Zd-dEx" firstAttribute="leading" secondItem="qdt-6t-qn1" secondAttribute="leading" id="UaW-TV-hnC"/>
                                     <constraint firstItem="4Kw-Zd-dEx" firstAttribute="top" secondItem="qdt-6t-qn1" secondAttribute="top" id="bIU-pa-hed"/>
                                     <constraint firstAttribute="trailing" secondItem="X5s-pQ-pNz" secondAttribute="trailing" id="g61-b1-GhS"/>
-                                    <constraint firstAttribute="trailing" secondItem="u9A-OI-1KM" secondAttribute="trailing" id="tQ2-2c-B3M"/>
+                                    <constraint firstAttribute="trailing" secondItem="u9A-OI-1KM" secondAttribute="trailing" constant="-50" id="tQ2-2c-B3M"/>
                                     <constraint firstItem="X5s-pQ-pNz" firstAttribute="top" secondItem="qdt-6t-qn1" secondAttribute="top" id="x6c-NT-cyY"/>
                                 </constraints>
                                 <variation key="default">
@@ -232,10 +232,10 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="blurImageView" destination="X5s-pQ-pNz" id="JmT-gr-O2O"/>
                         <outlet property="blurView" destination="4Kw-Zd-dEx" id="ya2-jY-lvl"/>
                         <outlet property="headerHeight" destination="TXC-Rp-WJy" id="Wug-q3-Kc1"/>
                         <outlet property="headerView" destination="qdt-6t-qn1" id="iG6-0Q-T9g"/>
+                        <outlet property="imageView" destination="u9A-OI-1KM" id="fMz-kx-SrD"/>
                         <outlet property="tableView" destination="lUN-7j-nWt" id="bh2-T1-7ND"/>
                     </connections>
                 </viewController>

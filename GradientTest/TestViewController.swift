@@ -17,7 +17,8 @@ class TestViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
     
-    @IBOutlet weak var blurImageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
+    
     
     
     @IBOutlet weak var blurView: UIVisualEffectView!
@@ -50,6 +51,8 @@ class TestViewController: UIViewController {
         //self.view.exchangeSubview(at: 0, withSubviewAt: 1)
         tableView.backgroundColor = .clear
         self.view.exchangeSubview(at: 0, withSubviewAt: 1)
+        
+        applyMotionEffect(to: imageView, magnitude: 30)
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,6 +117,24 @@ class TestViewController: UIViewController {
         
         return 100 * abs((value - min) / (max - min))
         
+        
+    }
+    
+    
+    func applyMotionEffect(to view: UIView, magnitude: CGFloat) {
+        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        xMotion.minimumRelativeValue = -magnitude
+        xMotion.maximumRelativeValue = magnitude
+        
+        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        yMotion.minimumRelativeValue = -magnitude
+        yMotion.maximumRelativeValue = magnitude
+        
+        
+        var group = UIMotionEffectGroup()
+        group.motionEffects =  [xMotion,yMotion]
+        
+        view.addMotionEffect(group)
         
     }
 
