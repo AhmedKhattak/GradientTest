@@ -11,12 +11,13 @@
 		4351838520F24BE100635E5C /* NiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351838420F24BE100635E5C /* NiceViewController.swift */; };
 		4351838720F24EEC00635E5C /* navbarhieghtextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351838620F24EEC00635E5C /* navbarhieghtextension.swift */; };
 		4381549120F09F1F00B2BDC8 /* NoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381549020F09F1F00B2BDC8 /* NoiceTableViewCell.swift */; };
-		43ADA3D620EE0D9B009FAAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ADA3D520EE0D9B009FAAA9 /* AppDelegate.swift */; };
 		43ADA3D820EE0D9B009FAAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ADA3D720EE0D9B009FAAA9 /* ViewController.swift */; };
 		43ADA3DB20EE0D9B009FAAA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43ADA3D920EE0D9B009FAAA9 /* Main.storyboard */; };
 		43ADA3DD20EE0D9D009FAAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43ADA3DC20EE0D9D009FAAA9 /* Assets.xcassets */; };
 		43ADA3E020EE0D9D009FAAA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43ADA3DE20EE0D9D009FAAA9 /* LaunchScreen.storyboard */; };
 		43ADA3E820EE4526009FAAA9 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ADA3E720EE4526009FAAA9 /* CustomNavBar.swift */; };
+		43CD08E620F3707400FA2919 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CD08E520F3707400FA2919 /* FXBlurView.m */; };
+		43CD08E820F3709100FA2919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD08E720F3709100FA2919 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +26,16 @@
 		4351838620F24EEC00635E5C /* navbarhieghtextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navbarhieghtextension.swift; sourceTree = "<group>"; };
 		4381549020F09F1F00B2BDC8 /* NoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiceTableViewCell.swift; sourceTree = "<group>"; };
 		43ADA3D220EE0D9B009FAAA9 /* GradientTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradientTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		43ADA3D520EE0D9B009FAAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43ADA3D720EE0D9B009FAAA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43ADA3DA20EE0D9B009FAAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43ADA3DC20EE0D9D009FAAA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43ADA3DF20EE0D9D009FAAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43ADA3E120EE0D9D009FAAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43ADA3E720EE4526009FAAA9 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		43CD08E320F3707400FA2919 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		43CD08E420F3707400FA2919 /* TB_TwitterHeader-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TB_TwitterHeader-Bridging-Header.h"; sourceTree = "<group>"; };
+		43CD08E520F3707400FA2919 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		43CD08E720F3709100FA2919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +68,7 @@
 		43ADA3D420EE0D9B009FAAA9 /* GradientTest */ = {
 			isa = PBXGroup;
 			children = (
-				43ADA3D520EE0D9B009FAAA9 /* AppDelegate.swift */,
+				43CD08E220F3706600FA2919 /* blur */,
 				43ADA3D720EE0D9B009FAAA9 /* ViewController.swift */,
 				43ADA3D920EE0D9B009FAAA9 /* Main.storyboard */,
 				43ADA3DC20EE0D9D009FAAA9 /* Assets.xcassets */,
@@ -75,8 +79,19 @@
 				4381549020F09F1F00B2BDC8 /* NoiceTableViewCell.swift */,
 				4351838420F24BE100635E5C /* NiceViewController.swift */,
 				4351838620F24EEC00635E5C /* navbarhieghtextension.swift */,
+				43CD08E720F3709100FA2919 /* AppDelegate.swift */,
 			);
 			path = GradientTest;
+			sourceTree = "<group>";
+		};
+		43CD08E220F3706600FA2919 /* blur */ = {
+			isa = PBXGroup;
+			children = (
+				43CD08E320F3707400FA2919 /* FXBlurView.h */,
+				43CD08E520F3707400FA2919 /* FXBlurView.m */,
+				43CD08E420F3707400FA2919 /* TB_TwitterHeader-Bridging-Header.h */,
+			);
+			path = blur;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,10 +167,11 @@
 			files = (
 				43ADA3E820EE4526009FAAA9 /* CustomNavBar.swift in Sources */,
 				43ADA3D820EE0D9B009FAAA9 /* ViewController.swift in Sources */,
+				43CD08E620F3707400FA2919 /* FXBlurView.m in Sources */,
 				4381549120F09F1F00B2BDC8 /* NoiceTableViewCell.swift in Sources */,
 				4351838720F24EEC00635E5C /* navbarhieghtextension.swift in Sources */,
 				4326F5A820EF6CE600B39AA7 /* TestViewController.swift in Sources */,
-				43ADA3D620EE0D9B009FAAA9 /* AppDelegate.swift in Sources */,
+				43CD08E820F3709100FA2919 /* AppDelegate.swift in Sources */,
 				4351838520F24BE100635E5C /* NiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

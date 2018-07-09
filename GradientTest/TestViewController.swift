@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class TestViewController: UIViewController {
     
     @IBOutlet weak var headerHeight: NSLayoutConstraint!
@@ -16,14 +17,22 @@ class TestViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
     
+    @IBOutlet weak var blurImageView: UIImageView!
+    
+    
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
+    
     private let magicNumber:CGFloat = 160
     
-    private let offset_HeaderStop: CGFloat = 44 + 20
+    private var offset_HeaderStop: CGFloat =  0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        offset_HeaderStop = UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.height)!
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -32,6 +41,8 @@ class TestViewController: UIViewController {
         tableView.reloadData()
         
         
+        //blurImageView.alpha = 0.0
+        //blurImageView.image = UIImage(named: "audience")
         
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
@@ -126,6 +137,7 @@ extension TestViewController: UITableViewDataSource {
             cell.weeow.layer.cornerRadius =  cell.weeow.frame.height / 2
             cell.weeow.layer.borderWidth = 4.0
             cell.weeow.layer.masksToBounds = true
+            cell.weeow.clipsToBounds = true
             cell.selectionStyle = .none
             
             //cell.clipsToBounds = false
@@ -211,11 +223,11 @@ extension TestViewController: UIScrollViewDelegate {
         
         
         //print(offset)
-        if offset >= 64 && offset <= magicNumber  {
+        if offset >= offset_HeaderStop && offset <= magicNumber  {
             // https://stackoverflow.com/questions/4241492/maths-range-to-percentage
            
             
-            let hmm  =  convertRangeToPercentage(value: offset, min: 64, max: magicNumber)
+            let hmm  =  convertRangeToPercentage(value: offset, min: offset_HeaderStop, max: magicNumber)
             
             
             /*
@@ -266,7 +278,12 @@ extension TestViewController: UIScrollViewDelegate {
             
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
             
+//            let alpha = (hmm / 100).rounded(FloatingPointRoundingRule.toNearestOrEven)
+//            print(alpha)
+            //blurView.alpha = hmm / 100
             
+           
+            blurView.alpha = mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 1.0, newMax: 0.0)
             //let x = mapRange(value: offset, oldMin: 0, oldMax: 100, newMin: 50, newMax: 100)
             //cell.imageYPosition.constant = x
            
