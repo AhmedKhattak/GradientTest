@@ -131,7 +131,7 @@ class TestViewController: UIViewController {
         yMotion.maximumRelativeValue = magnitude
         
         
-        var group = UIMotionEffectGroup()
+        let group = UIMotionEffectGroup()
         group.motionEffects =  [xMotion,yMotion]
         
         view.addMotionEffect(group)
