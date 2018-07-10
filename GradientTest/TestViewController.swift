@@ -250,6 +250,8 @@ extension TestViewController: UIScrollViewDelegate {
             
             let hmm  =  convertRangeToPercentage(value: offset, min: offset_HeaderStop, max: magicNumber)
             
+            // percent
+            
             
             /*
              
@@ -312,6 +314,15 @@ extension TestViewController: UIScrollViewDelegate {
             
             
 
+        } else if offset > magicNumber {
+            // this block fixes the overscroll visual artifacts
+            blurView.alpha = 0.0
+            cell.imageHeight.constant = 120
+            cell.imageWidth.constant = 120
+            
+            cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
+        } else if offset <= offset_HeaderStop {
+            blurView.alpha = 1.0
         }
         
         
