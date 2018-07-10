@@ -236,10 +236,9 @@ extension TestViewController: UIScrollViewDelegate {
 
         
 
-        guard let cell = cells[0] as? NoiceTableViewCell  else {
+        
+        guard !cells.isEmpty , let cell = cells[0] as? NoiceTableViewCell  else {
             return
-           
-            
         }
         
         
@@ -323,6 +322,11 @@ extension TestViewController: UIScrollViewDelegate {
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
         } else if offset <= offset_HeaderStop {
             blurView.alpha = 1.0
+            
+            cell.imageHeight.constant = 40
+            cell.imageWidth.constant = 40
+            
+            cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
         }
         
         
