@@ -24,53 +24,48 @@ class TestViewController: UIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     
     
-    private let magicNumber:CGFloat = 160
+    // the strechy header default height
+    private let headerDefaultHeight:CGFloat = 160
     
-    private var offset_HeaderStop: CGFloat =  0
+    // the minimum height of the header which is equal to the navbar + status bar height
+    private var minimumHeaderHeight: CGFloat =  0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        offset_HeaderStop = UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.height)!
+        // set minimum header height
+        minimumHeaderHeight = UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.height)!
         
+        
+        
+        // table view setup
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.contentInset = UIEdgeInsetsMake(magicNumber, 0, 0, 0)
+        // set the contentInset to be equal to headers height to the cells show
+        // below the headerview
+        tableView.contentInset = UIEdgeInsetsMake(headerDefaultHeight, 0, 0, 0)
+        
         tableView.reloadData()
         
         
-        //blurImageView.alpha = 0.0
-        //blurImageView.image = UIImage(named: "audience")
-        
+        // scroll to top to show header view in streched mode
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         
-        //self.view.exchangeSubview(at: 0, withSubviewAt: 1)
+    
+        // set the bg color to clear to show headerview behind it
         tableView.backgroundColor = .clear
-        self.view.exchangeSubview(at: 0, withSubviewAt: 1)
         
+    
+        // apply ios parallax effect on header view
         applyMotionEffect(to: imageView, magnitude: 30)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+    /// Maps a value from one range to another range
     func mapRange<X:FloatingPoint>(value: X ,oldMin:X, oldMax:X, newMin:X, newMax:X ) -> X {
         
         /*
@@ -101,6 +96,8 @@ class TestViewController: UIViewController {
     
     
 
+    /// Converts a range to a percentage percentage
+    /// https://stackoverflow.com/questions/4241492/maths-range-to-percentage
     func convertRangeToPercentage<X:FloatingPoint>(value: X ,min: X, max: X) -> X {
         
         /*
@@ -121,6 +118,7 @@ class TestViewController: UIViewController {
     }
     
     
+    /// Applies a default ios wallpaper like motion effect to a view
     func applyMotionEffect(to view: UIView, magnitude: CGFloat) {
         let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         xMotion.minimumRelativeValue = -magnitude
@@ -189,138 +187,115 @@ extension TestViewController: UITableViewDelegate {
     
 }
 
+
+// Where all the magic happens
 extension TestViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        //print("Content Offset Y: \(scrollView.contentOffset.y)")
-        //print("Content Inset: \(scrollView.contentInset)")
-        
-        let y = magicNumber - (scrollView.contentOffset.y + magicNumber)
+       
+        // calculate height for header
+        let y = headerDefaultHeight - (scrollView.contentOffset.y + headerDefaultHeight)
         let height = min(max(y, 44 + UIApplication.shared.statusBarFrame.height), 500)
-        //print(height)
+       
+        // set the header height
+        headerHeight.constant = height
         
+        // get offset and negate its sign
         let offset = -scrollView.contentOffset.y
 
+    
+        // check if offset has reached min height and check subview position
+        // then exchange their positions based on the condition
+        // We need to do that so that the circle profile is behind the header view when it
+        // reaches near it so it can move behind it
+        // vice versa when it moves below it
         
-        
-        if offset <= offset_HeaderStop && self.view.subviews.index(of: tableView) != 0 && self.view.subviews.index(of: headerView) != 1  {
+        if offset <= minimumHeaderHeight && self.view.subviews.index(of: tableView) != 0 && self.view.subviews.index(of: headerView) != 1  {
 
             self.view.exchangeSubview(at: 0, withSubviewAt: 1)
 
-        } else if offset >= offset_HeaderStop && self.view.subviews.index(of: tableView) == 0 && self.view.subviews.index(of: headerView) == 1 {
+        } else if offset >= minimumHeaderHeight && self.view.subviews.index(of: tableView) == 0 && self.view.subviews.index(of: headerView) == 1 {
+            
             self.view.exchangeSubview(at: 1, withSubviewAt: 0)
         }
         
+    
+    
+        // Get table view cells
+        let cells = tableView.visibleCells
         
-        
-        
-        
-        
-        
-        
-        
-        //        headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: height)
-        
-        headerHeight.constant = height
-        self.view.layoutIfNeeded()
-        
-        
-        
-        
-        guard let cells = tableView.visibleCells as? [UITableViewCell] else {
-            print("no cell")
-
-            return
-        }
-
-
-        
-
-        
+        // Check if cells are empty and then get the 0th cell and cast it
         guard !cells.isEmpty , let cell = cells[0] as? NoiceTableViewCell  else {
             return
         }
         
         
-        //print(offset)
-        if offset >= offset_HeaderStop && offset <= magicNumber  {
-            // https://stackoverflow.com/questions/4241492/maths-range-to-percentage
-           
-            
-            let hmm  =  convertRangeToPercentage(value: offset, min: offset_HeaderStop, max: magicNumber)
-            
-            // percent
-            
-            
-            /*
-             
-             map hmm from 0-100 to 50-100
-             https://stackoverflow.com/questions/12931115/algorithm-to-map-an-interval-to-a-smaller-interval
- 
-             To map
-             [A, B] --> [a, b]
-             
-             use this formula
-             (val - A)*(b-a)/(B-A) + a
-             
-             so we can get the size we need !!!
-             
-             
-             [0,100] --> [50,100]
-             A = 0
-             B = 100
-             a = 50
-             b = 100
-             
-             */
+      
+        // The real magic happens below
+        // Check if offset is between minheaderheight and defaultheaderheight
+        if offset >= minimumHeaderHeight && offset <= headerDefaultHeight  {
             
            
-            print("")
+
+            // Convert the range to percentage and get the percent based on current offset value
+            // 0.0% to 100.0%
+            let hmm  =  convertRangeToPercentage(value: offset, min: minimumHeaderHeight, max: headerDefaultHeight)
             
+    
             
+          
+           
+            //print("")
+            
+            // Map the current percentage from one range to another to get a value that is clamped between our provided min and max range
+            // 40 is the minimum profile pic height and 120 is the max and it should animate between the minheader and defualtheaderheight ranges !
             let mapRangeOutput =  mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 40, newMax: 120.0).rounded(.towardZero)
             
-            print("map generator output : \(mapRangeOutput)")
-            print("percentage:  \(hmm )")
-            print("offset inside block  \(offset)")
-            
-            print("")
+//            print("map generator output : \(mapRangeOutput)")
+//            print("percentage:  \(hmm )")
+//            print("offset inside block  \(offset)")
+//
+//            print("")
             
            
             
 
-            //var t = CGAffineTransform.identity
-            //t = t.scaledBy(x: mapRangeOutput, y: mapRangeOutput)
-            // ... add as many as you want, then apply it to to the view
-           // cell.weeow.transform = t
-            
+        
            
+            // Then set the image height and width
             cell.imageHeight.constant = mapRangeOutput
             cell.imageWidth.constant = mapRangeOutput
-            
+            // And recalculate the radius
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
             
-//            let alpha = (hmm / 100).rounded(FloatingPointRoundingRule.toNearestOrEven)
-//            print(alpha)
-            //blurView.alpha = hmm / 100
+
             
-           
+            // Convert the value from current range to 1.0 and 0.0 and set as alpha
             blurView.alpha = mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 1.0, newMax: 0.0)
-            //let x = mapRange(value: offset, oldMin: 0, oldMax: 100, newMin: 50, newMax: 100)
-            //cell.imageYPosition.constant = x
-           
+            
             
             
             
 
-        } else if offset > magicNumber {
+        } else if offset > headerDefaultHeight {
+            // If offset goes beyond headerDefaultHeight as the table view is strechy and bouncy
             // this block fixes the overscroll visual artifacts
+            
+            // Set the views to their end values in the animation
+            
             blurView.alpha = 0.0
             cell.imageHeight.constant = 120
             cell.imageWidth.constant = 120
-            
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
-        } else if offset <= offset_HeaderStop {
+            
+            
+        } else if offset <= minimumHeaderHeight {
+            
+            // If offset goes behind minimumHeaderHeight as the table view is strechy and bouncy
+            // this block fixes the underscroll visual artifacts
+            
+            // Set the views to their start values in the animation
+            
             blurView.alpha = 1.0
             
             cell.imageHeight.constant = 40
@@ -329,39 +304,7 @@ extension TestViewController: UIScrollViewDelegate {
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
         }
         
-        
-        
-         print("offset outsideblock  \(offset)")
-        
-        
-        
-//
-//        if(scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y <= 150.0) {
-//            let  percent = (scrollView.contentOffset.y / 150.0);
-//            self.headerView.layer.opacity = Float(percent);
-//
-//        } else if (scrollView.contentOffset.y > 150.0){
-//             self.headerView.layer.opacity  = 1;
-//
-//        } else if (scrollView.contentOffset.y < 0) {
-//            // do other ... ;
-//        }
-        
-    
-        
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+ 
         
     }
 }
