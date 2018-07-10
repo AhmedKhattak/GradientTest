@@ -15,6 +15,7 @@ class CustomUINavigationBar: UINavigationBar {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         removeTranslucency()
+        
     }
     
     func removeTranslucency()  {
@@ -22,13 +23,14 @@ class CustomUINavigationBar: UINavigationBar {
         self.isTranslucent = true
         self.shadowImage = UIImage()
         self.setBackgroundImage(UIImage(), for: .default)
+    }
+    
+    func makeGradient() {
         
-        
-//        let view  = UIView()
-//        view.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0, alpha: 0.30)
-//        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIApplication.shared.statusBarFrame.height)
-//        view.autoresizingMask = [.flexibleWidth]
-//        self.addSubview(view)
+                let view  = GraphView()
+                view.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+                view.autoresizingMask = [.flexibleWidth, .flexibleWidth]
+                self.addSubview(view)
         
     }
     

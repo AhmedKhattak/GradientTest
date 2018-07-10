@@ -20,6 +20,7 @@ class TestViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     
+    @IBOutlet weak var gradientView: GraphView!
     
     @IBOutlet weak var blurView: UIVisualEffectView!
     
@@ -172,7 +173,7 @@ extension TestViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 100.0
+            return 223.0
         } else {
             return 60.0
         }
@@ -249,7 +250,7 @@ extension TestViewController: UIScrollViewDelegate {
             
             // Map the current percentage from one range to another to get a value that is clamped between our provided min and max range
             // 40 is the minimum profile pic height and 120 is the max and it should animate between the minheader and defualtheaderheight ranges !
-            let mapRangeOutput =  mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 40, newMax: 120.0).rounded(.towardZero)
+            let mapRangeOutput =  mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 50, newMax: 120.0).rounded(.towardZero)
             
 //            print("map generator output : \(mapRangeOutput)")
 //            print("percentage:  \(hmm )")
@@ -268,6 +269,8 @@ extension TestViewController: UIScrollViewDelegate {
             // And recalculate the radius
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
             
+            
+            print(cell.imageYPosition.constant)
 
             
             // Convert the value from current range to 1.0 and 0.0 and set as alpha
@@ -298,8 +301,8 @@ extension TestViewController: UIScrollViewDelegate {
             
             blurView.alpha = 1.0
             
-            cell.imageHeight.constant = 40
-            cell.imageWidth.constant = 40
+            cell.imageHeight.constant = 50
+            cell.imageWidth.constant = 50
             
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
         }

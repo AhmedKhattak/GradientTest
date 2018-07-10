@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431E302020F4A565002C8D57 /* SketchGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431E301F20F4A565002C8D57 /* SketchGradient.swift */; };
 		4326F5A820EF6CE600B39AA7 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326F5A720EF6CE600B39AA7 /* TestViewController.swift */; };
 		4351838520F24BE100635E5C /* NiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351838420F24BE100635E5C /* NiceViewController.swift */; };
 		4351838720F24EEC00635E5C /* navbarhieghtextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351838620F24EEC00635E5C /* navbarhieghtextension.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431E301F20F4A565002C8D57 /* SketchGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchGradient.swift; sourceTree = "<group>"; };
 		4326F5A720EF6CE600B39AA7 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		4351838420F24BE100635E5C /* NiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceViewController.swift; sourceTree = "<group>"; };
 		4351838620F24EEC00635E5C /* navbarhieghtextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navbarhieghtextension.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				4351838420F24BE100635E5C /* NiceViewController.swift */,
 				4351838620F24EEC00635E5C /* navbarhieghtextension.swift */,
 				43CD08E720F3709100FA2919 /* AppDelegate.swift */,
+				431E301F20F4A565002C8D57 /* SketchGradient.swift */,
 			);
 			path = GradientTest;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				4326F5A820EF6CE600B39AA7 /* TestViewController.swift in Sources */,
 				43CD08E820F3709100FA2919 /* AppDelegate.swift in Sources */,
 				4351838520F24BE100635E5C /* NiceViewController.swift in Sources */,
+				431E302020F4A565002C8D57 /* SketchGradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
