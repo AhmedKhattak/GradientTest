@@ -17,6 +17,7 @@
 		43ADA3DD20EE0D9D009FAAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43ADA3DC20EE0D9D009FAAA9 /* Assets.xcassets */; };
 		43ADA3E020EE0D9D009FAAA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43ADA3DE20EE0D9D009FAAA9 /* LaunchScreen.storyboard */; };
 		43ADA3E820EE4526009FAAA9 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ADA3E720EE4526009FAAA9 /* CustomNavBar.swift */; };
+		43BF564220F5EA6D00AF63FE /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BF564120F5EA6D00AF63FE /* TestView.swift */; };
 		43CD08E820F3709100FA2919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD08E720F3709100FA2919 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		43ADA3DF20EE0D9D009FAAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43ADA3E120EE0D9D009FAAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43ADA3E720EE4526009FAAA9 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		43BF564120F5EA6D00AF63FE /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		43CD08E720F3709100FA2919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				4351838620F24EEC00635E5C /* navbarhieghtextension.swift */,
 				43CD08E720F3709100FA2919 /* AppDelegate.swift */,
 				431E301F20F4A565002C8D57 /* SketchGradient.swift */,
+				43BF564120F5EA6D00AF63FE /* TestView.swift */,
 			);
 			path = GradientTest;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				4351838720F24EEC00635E5C /* navbarhieghtextension.swift in Sources */,
 				4326F5A820EF6CE600B39AA7 /* TestViewController.swift in Sources */,
 				43CD08E820F3709100FA2919 /* AppDelegate.swift in Sources */,
+				43BF564220F5EA6D00AF63FE /* TestView.swift in Sources */,
 				4351838520F24BE100635E5C /* NiceViewController.swift in Sources */,
 				431E302020F4A565002C8D57 /* SketchGradient.swift in Sources */,
 			);

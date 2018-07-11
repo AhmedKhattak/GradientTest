@@ -91,8 +91,8 @@ class TestViewController: UIViewController {
          
          */
         
-        let x = (value - oldMin) * (newMax - newMin) / ( oldMax - oldMin ) + newMin
-        return x
+        return (value - oldMin) * (newMax - newMin) / ( oldMax - oldMin ) + newMin
+        
     }
     
     
@@ -158,6 +158,9 @@ extension TestViewController: UITableViewDataSource {
             cell.weeow.layer.borderWidth = 4.0
             cell.weeow.layer.masksToBounds = true
             cell.weeow.clipsToBounds = true
+            //cell.weeow.transform = CGAffineTransform.identity
+            //cell.weeow.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
+        
             cell.selectionStyle = .none
             
             //cell.clipsToBounds = false
@@ -242,71 +245,67 @@ extension TestViewController: UIScrollViewDelegate {
             // 0.0% to 100.0%
             let hmm  =  convertRangeToPercentage(value: offset, min: minimumHeaderHeight, max: headerDefaultHeight)
             
+            
+            print(offset)
     
             
           
            
-            //print("")
+            print("")
             
             // Map the current percentage from one range to another to get a value that is clamped between our provided min and max range
             // 40 is the minimum profile pic height and 120 is the max and it should animate between the minheader and defualtheaderheight ranges !
-            let mapRangeOutput =  mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 50, newMax: 120.0).rounded(.towardZero)
+            let mapRangeOutput =  mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 0.41667, newMax: 1.0)
             
-//            print("map generator output : \(mapRangeOutput)")
-//            print("percentage:  \(hmm )")
-//            print("offset inside block  \(offset)")
-//
-//            print("")
+            print("map generator output : \(mapRangeOutput)")
+            print("percentage:  \(hmm )")
+            print("offset inside block  \(offset)")
+            print("image height: \(cell.weeow.frame.height)")
+
+            print("")
             
            
+            
             
 
         
-           
-            // Then set the image height and width
-            cell.imageHeight.constant = mapRangeOutput
-            cell.imageWidth.constant = mapRangeOutput
+
+            cell.weeow.applyTransform(withScale: mapRangeOutput, anchorPoint: CGPoint(x: 0.5, y: 1))
             // And recalculate the radius
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
-            
-            
-            print(cell.imageYPosition.constant)
+        
 
-            
             // Convert the value from current range to 1.0 and 0.0 and set as alpha
             blurView.alpha = mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 1.0, newMax: 0.0)
             
             
             
-            
+        
 
         } else if offset > headerDefaultHeight {
             // If offset goes beyond headerDefaultHeight as the table view is strechy and bouncy
             // this block fixes the overscroll visual artifacts
-            
+
             // Set the views to their end values in the animation
-            
+
             blurView.alpha = 0.0
-            cell.imageHeight.constant = 120
-            cell.imageWidth.constant = 120
+            cell.weeow.applyTransform(withScale: 1.0, anchorPoint: CGPoint(x: 0.5, y: 1))
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
-            
-            
+
+
         } else if offset <= minimumHeaderHeight {
-            
+
             // If offset goes behind minimumHeaderHeight as the table view is strechy and bouncy
             // this block fixes the underscroll visual artifacts
-            
+
             // Set the views to their start values in the animation
-            
+
             blurView.alpha = 1.0
-            
-            cell.imageHeight.constant = 50
-            cell.imageWidth.constant = 50
-            
+
+              cell.weeow.applyTransform(withScale: 0.41667, anchorPoint: CGPoint(x: 0.5, y: 1))
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
         }
-        
+    
  
         
     }

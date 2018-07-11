@@ -96,3 +96,22 @@ import UIKit
                                    options: [])
     }
 }
+
+
+extension UIView {
+
+    // https://stackoverflow.com/a/49556261/8685328
+  
+        func applyTransform(withScale scale: CGFloat, anchorPoint: CGPoint) {
+            layer.anchorPoint = anchorPoint
+            let scale = scale != 0 ? scale : CGFloat.leastNonzeroMagnitude
+            // The real magic happens on below 2 lines !!!
+            let xPadding = 1/scale * (anchorPoint.x - 0.5)*bounds.width
+            let yPadding = 1/scale * (anchorPoint.y - 0.5)*bounds.width
+            
+            transform = CGAffineTransform(scaleX: scale, y: scale).translatedBy(x: xPadding, y: yPadding)
+            
+        
+        }
+    
+}
