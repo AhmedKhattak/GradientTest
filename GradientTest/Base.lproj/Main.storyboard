@@ -18,6 +18,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ayw-Uk-5mO" customClass="CustomUINavigationBar" customModule="GradientTest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.92549019610000005" green="0.13725490200000001" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b1k-7J-aKU">
                         <autoresizingMask key="autoresizingMask"/>
@@ -114,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="-1020" y="-317.09145427286359"/>
         </scene>
-        <!--Test View Controller-->
+        <!--Tajdar-->
         <scene sceneID="wdC-E9-6Qx">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="2WP-ea-UBK" customClass="TestViewController" customModule="GradientTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,13 +137,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="229.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Super" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS1-T6-gkP">
-                                                    <rect key="frame" x="16" y="76" width="343" height="30"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tajdar Bukhari" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS1-T6-gkP">
+                                                    <rect key="frame" x="16" y="68" width="343" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-u1-I1E">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="model" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-u1-I1E">
                                                     <rect key="frame" x="127" y="-60.5" width="120" height="120.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="bos-tj-QNi"/>
@@ -157,7 +161,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="bS1-T6-gkP" secondAttribute="trailing" constant="16" id="AmP-VH-guX"/>
                                                 <constraint firstItem="4yb-u1-I1E" firstAttribute="centerY" secondItem="pxd-fa-dGX" secondAttribute="centerY" constant="-115" id="Tck-fn-nTK"/>
                                                 <constraint firstItem="bS1-T6-gkP" firstAttribute="leading" secondItem="pxd-fa-dGX" secondAttribute="leading" constant="16" id="UQj-ed-hjZ"/>
-                                                <constraint firstItem="bS1-T6-gkP" firstAttribute="top" secondItem="4yb-u1-I1E" secondAttribute="bottom" constant="16" id="ruX-2F-L6N"/>
+                                                <constraint firstItem="bS1-T6-gkP" firstAttribute="top" secondItem="4yb-u1-I1E" secondAttribute="bottom" constant="8" id="ruX-2F-L6N"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -249,10 +253,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RWz-GE-4EB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wQg-a7-o0L">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fkN-lc-fLY">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Tajdar" id="wQg-a7-o0L">
+                        <rightBarButtonItems>
+                            <barButtonItem image="settings" id="IfB-Xp-MSO">
+                                <inset key="imageInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="create_new" style="plain" id="fkN-lc-fLY">
+                                <inset key="imageInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -316,8 +327,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blue" width="640" height="960"/>
+        <image name="create_new" width="24" height="23"/>
         <image name="large" width="2250" height="1500"/>
+        <image name="model" width="640" height="426"/>
+        <image name="settings" width="26" height="26"/>
         <namedColor name="TellgateComplementaryBlue">
             <color red="0.078000001609999994" green="0.57300001379999999" blue="0.99599999189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

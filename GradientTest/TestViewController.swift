@@ -31,6 +31,8 @@ class TestViewController: UIViewController {
     // the minimum height of the header which is equal to the navbar + status bar height
     private var minimumHeaderHeight: CGFloat =  0
     
+    private let maxHeaderHeight: CGFloat = 500
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -199,14 +201,14 @@ extension TestViewController: UIScrollViewDelegate {
        
         // calculate height for header
         let y = headerDefaultHeight - (scrollView.contentOffset.y + headerDefaultHeight)
-        let height = min(max(y, 44 + UIApplication.shared.statusBarFrame.height), 500)
+        let height = min(max(y, 44 + UIApplication.shared.statusBarFrame.height), maxHeaderHeight)
        
         // set the header height
         headerHeight.constant = height
         
         // get offset and negate its sign
         let offset = -scrollView.contentOffset.y
-
+        print(offset)
     
         // check if offset has reached min height and check subview position
         // then exchange their positions based on the condition
@@ -255,7 +257,7 @@ extension TestViewController: UIScrollViewDelegate {
             
             // Map the current percentage from one range to another to get a value that is clamped between our provided min and max range
             // 40 is the minimum profile pic height and 120 is the max and it should animate between the minheader and defualtheaderheight ranges !
-            let mapRangeOutput =  mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 0.41667, newMax: 1.0)
+            let mapRangeOutput =  mapRange(value: hmm, oldMin: 0.0, oldMax: 100.0, newMin: 0.45, newMax: 1.0)
             
             print("map generator output : \(mapRangeOutput)")
             print("percentage:  \(hmm )")
@@ -282,7 +284,7 @@ extension TestViewController: UIScrollViewDelegate {
             
         
 
-        } else if offset > headerDefaultHeight {
+        } else if offset >= headerDefaultHeight {
             // If offset goes beyond headerDefaultHeight as the table view is strechy and bouncy
             // this block fixes the overscroll visual artifacts
 
@@ -302,7 +304,7 @@ extension TestViewController: UIScrollViewDelegate {
 
             blurView.alpha = 1.0
 
-              cell.weeow.applyTransform(withScale: 0.41667, anchorPoint: CGPoint(x: 0.5, y: 1))
+              cell.weeow.applyTransform(withScale: 0.45, anchorPoint: CGPoint(x: 0.5, y: 1))
             cell.weeow.layer.cornerRadius = cell.imageHeight.constant / 2
         }
     

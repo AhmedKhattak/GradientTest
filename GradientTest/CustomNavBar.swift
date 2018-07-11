@@ -15,6 +15,7 @@ class CustomUINavigationBar: UINavigationBar {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         removeTranslucency()
+        setTint(color: UIColor.white)
         
     }
     
@@ -32,6 +33,10 @@ class CustomUINavigationBar: UINavigationBar {
                 view.autoresizingMask = [.flexibleWidth, .flexibleWidth]
                 self.addSubview(view)
         
+    }
+    
+    func setTint(color: UIColor)  {
+        self.tintColor = color
     }
     
     
