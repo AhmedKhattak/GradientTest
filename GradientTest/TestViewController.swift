@@ -157,15 +157,11 @@ extension TestViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "noice", for: indexPath) as! NoiceTableViewCell
             cell.weeow.layer.borderColor = UIColor.white.cgColor
             cell.weeow.layer.cornerRadius =  cell.weeow.frame.height / 2
-            cell.weeow.layer.borderWidth = 4.0
+            cell.weeow.layer.borderWidth = 5.0
             cell.weeow.layer.masksToBounds = true
             cell.weeow.clipsToBounds = true
-            //cell.weeow.transform = CGAffineTransform.identity
-            //cell.weeow.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
-        
             cell.selectionStyle = .none
-            
-            //cell.clipsToBounds = false
+
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "hmm2", for: indexPath)
