@@ -101,6 +101,7 @@ import UIKit
 extension UIView {
 
     // https://stackoverflow.com/a/49556261/8685328
+    // 😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩😩
   
         func applyTransform(withScale scale: CGFloat, anchorPoint: CGPoint) {
             layer.anchorPoint = anchorPoint
@@ -110,8 +111,7 @@ extension UIView {
             let yPadding = 1/scale * (anchorPoint.y - 0.5)*bounds.width
             
             transform = CGAffineTransform(scaleX: scale, y: scale).translatedBy(x: xPadding, y: yPadding)
-            
-        
+    
         }
     
 }
