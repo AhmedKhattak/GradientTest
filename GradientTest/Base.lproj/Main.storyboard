@@ -234,11 +234,6 @@
                                     <constraint firstAttribute="trailing" secondItem="u9A-OI-1KM" secondAttribute="trailing" constant="-50" id="tQ2-2c-B3M"/>
                                     <constraint firstItem="X9w-XE-Yek" firstAttribute="leading" secondItem="qdt-6t-qn1" secondAttribute="leading" id="zoF-Mn-tFI"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="X9w-XE-Yek"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -258,6 +253,9 @@
                             <barButtonItem image="settings" id="IfB-Xp-MSO">
                                 <inset key="imageInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="refreshTable:" destination="2WP-ea-UBK" id="dxw-hM-atc"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="create_new" style="plain" id="fkN-lc-fLY">
                                 <inset key="imageInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -288,11 +286,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8n-yu-DkV" customClass="GraphView" customModule="GradientTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="167" id="iLT-P4-clS"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                         <color key="value" red="1" green="0.20784313725490194" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -308,6 +303,7 @@
                             <constraint firstItem="V8n-yu-DkV" firstAttribute="top" secondItem="mfo-AB-ANB" secondAttribute="top" id="VpO-5x-cpy"/>
                             <constraint firstItem="V8n-yu-DkV" firstAttribute="trailing" secondItem="hZa-at-n2p" secondAttribute="trailing" id="Yin-lG-xag"/>
                             <constraint firstItem="V8n-yu-DkV" firstAttribute="leading" secondItem="hZa-at-n2p" secondAttribute="leading" id="ZOU-zL-S7f"/>
+                            <constraint firstItem="V8n-yu-DkV" firstAttribute="bottom" secondItem="hZa-at-n2p" secondAttribute="bottom" id="qv7-9L-50g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hZa-at-n2p"/>
                         <userDefinedRuntimeAttributes>

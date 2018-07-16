@@ -12,6 +12,7 @@
 		4351838520F24BE100635E5C /* NiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351838420F24BE100635E5C /* NiceViewController.swift */; };
 		4351838720F24EEC00635E5C /* navbarhieghtextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351838620F24EEC00635E5C /* navbarhieghtextension.swift */; };
 		4381549120F09F1F00B2BDC8 /* NoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381549020F09F1F00B2BDC8 /* NoiceTableViewCell.swift */; };
+		438A2DE720F76AA000192508 /* UIControlInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A2DE620F76AA000192508 /* UIControlInteractionManager.swift */; };
 		43ADA3D820EE0D9B009FAAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ADA3D720EE0D9B009FAAA9 /* ViewController.swift */; };
 		43ADA3DB20EE0D9B009FAAA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43ADA3D920EE0D9B009FAAA9 /* Main.storyboard */; };
 		43ADA3DD20EE0D9D009FAAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43ADA3DC20EE0D9D009FAAA9 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		4351838420F24BE100635E5C /* NiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceViewController.swift; sourceTree = "<group>"; };
 		4351838620F24EEC00635E5C /* navbarhieghtextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navbarhieghtextension.swift; sourceTree = "<group>"; };
 		4381549020F09F1F00B2BDC8 /* NoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiceTableViewCell.swift; sourceTree = "<group>"; };
+		438A2DE620F76AA000192508 /* UIControlInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlInteractionManager.swift; sourceTree = "<group>"; };
 		43ADA3D220EE0D9B009FAAA9 /* GradientTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradientTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43ADA3D720EE0D9B009FAAA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43ADA3DA20EE0D9B009FAAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				43CD08E720F3709100FA2919 /* AppDelegate.swift */,
 				431E301F20F4A565002C8D57 /* SketchGradient.swift */,
 				43BF564120F5EA6D00AF63FE /* TestView.swift */,
+				438A2DE620F76AA000192508 /* UIControlInteractionManager.swift */,
 			);
 			path = GradientTest;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438A2DE720F76AA000192508 /* UIControlInteractionManager.swift in Sources */,
 				43ADA3E820EE4526009FAAA9 /* CustomNavBar.swift in Sources */,
 				43ADA3D820EE0D9B009FAAA9 /* ViewController.swift in Sources */,
 				4381549120F09F1F00B2BDC8 /* NoiceTableViewCell.swift in Sources */,

@@ -33,7 +33,14 @@ class TestViewController: UIViewController {
     
     private let maxHeaderHeight: CGFloat = 500
     
+    let refreshControl = UIRefreshControl()
+
+    
     override func viewDidLoad() {
+        
+        
+        
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -46,12 +53,27 @@ class TestViewController: UIViewController {
         // table view setup
         tableView.dataSource = self
         tableView.delegate = self
+     
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+     
+      
         
         // set the contentInset to be equal to headers height to the cells show
         // below the headerview
         tableView.contentInset = UIEdgeInsetsMake(headerDefaultHeight, 0, 0, 0)
+        //tableView.setContentOffset(CGPoint.init(x: 0, y: minimumHeaderHeight), animated: true)
+      
         
-        tableView.reloadData()
+  
         
         
         // scroll to top to show header view in streched mode
@@ -62,9 +84,41 @@ class TestViewController: UIViewController {
         // set the bg color to clear to show headerview behind it
         tableView.backgroundColor = .clear
         
+        refreshControl.tintColor = .white
+        tableView.refreshControl = refreshControl
+        
     
+        refreshControl.bounds = CGRect(x: 0, y: headerDefaultHeight, width: refreshControl.bounds.width, height: refreshControl.bounds.height)
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        if let refreshControl = tableView.refreshControl, let navBar = self.navigationController?.navigationBar {
+            
+            
+            // can use frame and bounds aswell
+            // frame causes refresh control to hide prematurely when scrolling table view up
+//           refreshControl.subviews[0].frame = CGRect(x: refreshControl.frame.origin.x, y:  -80, width: refreshControl.frame.width, height: refreshControl.frame.height)
+            
+            print(navBar.frame.origin.y)
+        }
+        
+        
         // apply ios parallax effect on header view
         applyMotionEffect(to: imageView, magnitude: 30)
+        
+        
+      
+    }
+    
+    
+    @objc func refresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+           
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+           
+            print("end refresh")
+        }
     }
 
     
@@ -119,6 +173,17 @@ class TestViewController: UIViewController {
         
         
     }
+    
+    
+    
+    @IBAction func refreshTable(_ sender: UIBarButtonItem) {
+        
+        self.tableView.reloadData()
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+       
+    }
+    
     
     
     /// Applies a default ios wallpaper like motion effect to a view
