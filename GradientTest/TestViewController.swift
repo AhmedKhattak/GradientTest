@@ -88,6 +88,7 @@ class TestViewController: UIViewController {
         tableView.refreshControl = refreshControl
         
     
+        // https://stackoverflow.com/questions/17309268/offsetting-uirefreshcontrol
         refreshControl.bounds = CGRect(x: 0, y: headerDefaultHeight, width: refreshControl.bounds.width, height: refreshControl.bounds.height)
         
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -113,10 +114,8 @@ class TestViewController: UIViewController {
     
     @objc func refresh() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-           
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
-           
             print("end refresh")
         }
     }
